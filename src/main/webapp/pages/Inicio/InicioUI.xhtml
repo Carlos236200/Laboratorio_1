@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <h:outputScript name ="script.js" library="js"/>
+        <h:outputStylesheet name ="default.css" library="css"/>
+        <h:outputStylesheet name ="theme.css" library="css"/>
+    </h:head>
+    
+     <h:body>        
+            <h:form>   
+                <div style="align-items: center">
+                    <h1>PAGINA INICIAL VENTAS</h1>
+                    <!-- Agrega el siguiente botón para redireccionar a otro archivo XHTML -->
+                    <p:panelGrid columns="1">
+                   <p:commandButton value="IR A CLIENTES               " action="Clientes.xhtml" /> 
+                   <p:commandButton value="IR DETALLES CLIENTES " action="DETALLES_ORDENES.xhtml" />
+                   <p:commandButton value="IR A ORDENES               " action="ORDENES.xhtml" /> 
+                   <p:commandButton value="IR A PRODUCTOS          " action="PRODUCTOS.xhtml" />
+                   </p:panelGrid>  
+                </div>
+            </h:form>
+     </h:body>
+</html>

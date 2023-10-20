@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <h:outputScript name ="script.js" library="js"/>
+        <h:outputStylesheet name ="default.css" library="css"/>
+        <h:outputStylesheet name ="theme.css" library="css"/>
+    </h:head>
+    
+     <h:body>      
+         <h:form>   
+                <div style="align-items: center">
+                   <h1>Detalles de Órdenes</h1>
+                        <br></br><br></br>
+                        <p:commandButton value="Refrescar" update="tblLista" /> <br></br>
+                         <br></br>
+                         <br></br><!-- comment -->
+                         <p:dataTable id="tblLista" value="#{Inicio_OrdenesUI.lista}" var="item">
+                             <p:column headerText="ID" >
+                                 <p:outputLabel value="#{item.id}" />
+                </p:column>   
+                <p:column headerText="Orden ID" >
+                    <p:outputLabel value="#{item.orden_id}" />
+                </p:column>      
+                        <p:column headerText="Producto ID" >
+                            <p:outputLabel value="#{item.producto_id}" />
+                </p:column>  
+                              <p:column headerText="Cantidad" >
+                                  <p:outputLabel value="#{item.cantidad}" />
+                </p:column>  
+                              <p:column headerText="Precio" >
+                                  <p:outputLabel value="#{item.precio}" />
+                </p:column>  
+                         </p:dataTable>        
+                         <br></br>
+                               <!--  datos a insertar -->  
+                               <p:inputText value="#{Inicio_OrdenesUI.datosAInsertarOrdenes.orden_id}" placeholder="Orden_ID"/>
+                               <p:inputText value="#{Inicio_OrdenesUI.datosAInsertarOrdenes.producto_id}" placeholder="Producto_ID"/>
+                               <p:inputText value="#{Inicio_OrdenesUI.datosAInsertarOrdenes.cantidad}" placeholder="Cantidad"/>
+                               <p:inputText value="#{Inicio_OrdenesUI.datosAInsertarOrdenes.precio}" placeholder="Precio"/>
+    <!-- boton para insertar -->
+    <p:commandButton value="Insertar Datos" actionListener="#{Inicio_OrdenesUI.insertarDatosOrdenes()}" />   
+    <br></br><br></br>
+    <!--  datos a actualizar --> 
+    <p:inputText id="idOrden" value="#{Inicio_OrdenesUI.idRegistroActualizarOrdenes}" placeholder="ID DE ORDEN" />
+    <p:inputText id="Orden_ID" value="#{Inicio_OrdenesUI.datosAActualizarOrdenes.orden_id}" placeholder="Nuevo Orden ID" />
+    <p:inputText id="producto_ID" value="#{Inicio_OrdenesUI.datosAActualizarOrdenes.producto_id}" placeholder="Nuevo producto_ID" />
+    <p:inputText id="cantidad" value="#{Inicio_OrdenesUI.datosAActualizarOrdenes.cantidad}" placeholder="Nueva cantidad" />
+    <p:inputText id="Precio" value="#{Inicio_OrdenesUI.datosAActualizarOrdenes.precio}" placeholder="Nuevo precio" />
+                    <!-- boton para actualizar -->
+                    <p:commandButton value="Actualizar Datos" actionListener="#{Inicio_OrdenesUI.actualizarDatosOrdenes()}" /> <br></br>
+                    <br></br>
+                    <p:commandButton value="Ir a Inicio" action="InicioUI.xhtml" />
+</div>
+             </h:form>
+     </h:body>
+</html>
