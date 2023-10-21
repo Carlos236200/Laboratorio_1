@@ -14,6 +14,8 @@
                 <div style="align-items: center">
                    <h1>Detalles de Órdenes</h1>
                         <br></br><br></br>
+                        <p:commandButton value="Refrescar" update="tblLista" />  <p:commandButton value="Ir a Inicio" action="InicioHibernate.xhtml" />
+                         <br></br>
                 <p:dataTable id="tblLista" value="#{bkn_detallesOrdenes.lista}" var="item">
                   <p:column headerText="ID" >
                 <p:outputLabel value="#{item.id}" />
@@ -50,7 +52,6 @@
                     <p:commandButton value="Actualizar Datos" actionListener="#{bkn_detallesOrdenes.actualizarDetalleOrden()}" /> <br></br>
                     <br></br>    
                      <br></br>
-                    <p:commandButton value="Ir a Inicio" action="InicioHibernate.xhtml" />
                     </div>
             </h:form>
      </h:body>

@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <h:outputScript name ="script.js" library="js"/>
+        <h:outputStylesheet name ="default.css" library="css"/>
+        <h:outputStylesheet name ="theme.css" library="css"/>
+    </h:head>
+    
+     <h:body>        
+            <h:form>
+                 <div style="align-items: center">
+                   <h1>ORDENES</h1>
+                        <br></br><br></br>
+                        <p:commandButton value="Refrescar" update="tblLista" /> <p:commandButton value="Ir a Inicio" action="InicioHibernate.xhtml" />
+                         <br></br>
+                         <p:dataTable id="tblLista" value="#{bkn_Ordenes.lista}" var="item">
+                  <p:column headerText="ID" >
+                <p:outputLabel value="#{item.id}" />
+                </p:column>   
+                <p:column headerText="Cliente_id" >
+                    <p:outputLabel value="#{item.cliente_id}" />
+                </p:column>      
+                        <p:column headerText="Fecha" >
+                            <p:outputLabel value="#{item.fecha}" />
+                </p:column>  
+                              <p:column headerText="Total" >
+                                  <p:outputLabel value="#{item.total}" />
+                </p:column>  
+                         </p:dataTable>        
+                         <br></br>
+                       <!--  datos a insertar -->  
+                       <p:inputText value="#{bkn_Ordenes.datosAInsertar.cliente_id}" placeholder="Cliente ID"/>
+                       <p:inputText value="#{bkn_Ordenes.datosAInsertar.fecha}" placeholder="Fecha"/>
+                       <p:inputText value="#{bkn_Ordenes.datosAInsertar.total}" placeholder="Total"/>
+                       
+    <!-- boton para insertar -->
+    <p:commandButton value="Insertar Datos" actionListener="#{bkn_Ordenes.insertarOrden()}" />  
+    <br></br><br></br>
+    <!--  datos a actualizar -->
+    <p:inputText id="idorden" value="#{bkn_Ordenes.datosActualizar.id}" placeholder="ID de Orden" />
+    <p:inputText id="cliente_ID" value="#{bkn_Ordenes.datosActualizar.cliente_id}" placeholder="Cliente ID" />
+    <p:inputText id="Fecha" value="#{bkn_Ordenes.datosActualizar.fecha}" placeholder="Fecha" />
+    <p:inputText id="Total" value="#{bkn_Ordenes.datosActualizar.total}" placeholder="Total" />
+                    <!-- boton para actualizar -->
+                    <p:commandButton value="Actualizar Datos" actionListener="#{bkn_Ordenes.actualizarOrden()}" /> <br></br>
+                    <br></br>   
+                      <br></br>
+                   
+                    </div>
+            </h:form>
+     </h:body>
+</html>
