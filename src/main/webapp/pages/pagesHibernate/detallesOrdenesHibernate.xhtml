@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <h:outputScript name ="script.js" library="js"/>
+        <h:outputStylesheet name ="default.css" library="css"/>
+        <h:outputStylesheet name ="theme.css" library="css"/>
+    </h:head>
+    
+     <h:body>        
+            <h:form>
+                <div style="align-items: center">
+                   <h1>Detalles de Órdenes</h1>
+                        <br></br><br></br>
+                <p:dataTable id="tblLista" value="#{bkn_detallesOrdenes.lista}" var="item">
+                  <p:column headerText="ID" >
+                <p:outputLabel value="#{item.id}" />
+                </p:column>   
+                <p:column headerText="Orden ID" >
+                    <p:outputLabel value="#{item.orden_id}" />
+                </p:column>      
+                        <p:column headerText="Producto ID" >
+                            <p:outputLabel value="#{item.producto_id}" />
+                </p:column>  
+                              <p:column headerText="Cantidad" >
+                                  <p:outputLabel value="#{item.cantidad}" />
+                </p:column>  
+                              <p:column headerText="Precio" >
+                                  <p:outputLabel value="#{item.precio}" />
+                </p:column>  
+                         </p:dataTable>        
+                         <br></br>
+                       <!--  datos a insertar -->  
+                       <p:inputText value="#{bkn_detallesOrdenes.datosAInsertar.orden_id}" placeholder="Orden ID"/>
+                       <p:inputText value="#{bkn_detallesOrdenes.datosAInsertar.producto_id}" placeholder="Producto ID"/>
+                       <p:inputText value="#{bkn_detallesOrdenes.datosAInsertar.cantidad}" placeholder="Cantidad"/>
+                       <p:inputText value="#{bkn_detallesOrdenes.datosAInsertar.precio}" placeholder="Precio"/>
+    <!-- boton para insertar -->
+    <p:commandButton value="Insertar Datos" actionListener="#{bkn_detallesOrdenes.insertarDetalleOrden()}" />  
+    <br></br><br></br>
+    <!--  datos a actualizar -->
+    <p:inputText id="idCliente" value="#{bkn_detallesOrdenes.datosActualizar.id}" placeholder="ID a Actualizar" />
+    <p:inputText id="nombre" value="#{bkn_detallesOrdenes.datosActualizar.orden_id}" placeholder="Nueva Orden ID" />
+    <p:inputText id="correo" value="#{bkn_detallesOrdenes.datosActualizar.producto_id}" placeholder="Nuevo Producto ID" />
+    <p:inputText id="direccion" value="#{bkn_detallesOrdenes.datosActualizar.cantidad}" placeholder="Nueva Cantidad" />
+    <p:inputText id="telefono" value="#{bkn_detallesOrdenes.datosActualizar.precio}" placeholder="Nuevo Precio" />
+                    <!-- boton para actualizar -->
+                    <p:commandButton value="Actualizar Datos" actionListener="#{bkn_detallesOrdenes.actualizarDetalleOrden()}" /> <br></br>
+                    <br></br>    
+                     <br></br>
+                    <p:commandButton value="Ir a Inicio" action="InicioHibernate.xhtml" />
+                    </div>
+            </h:form>
+     </h:body>
+</html>

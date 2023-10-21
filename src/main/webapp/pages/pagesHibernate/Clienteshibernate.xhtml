@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <h:outputScript name ="script.js" library="js"/>
+        <h:outputStylesheet name ="default.css" library="css"/>
+        <h:outputStylesheet name ="theme.css" library="css"/>
+    </h:head>
+    
+     <h:body>        
+            <h:form>
+                 <div style="align-items: center">
+                   <h1>CLIENTES</h1>
+                        <br></br><br></br>
+                    <p:dataTable id="tblLista" value="#{bkn_Cliente.lista}" var="item">
+                  <p:column headerText="ID" >
+                <p:outputLabel value="#{item.id}" />
+                </p:column>   
+                <p:column headerText="Nombre" >
+                    <p:outputLabel value="#{item.nombre}" />
+                </p:column>      
+                        <p:column headerText="Correo" >
+                            <p:outputLabel value="#{item.correo}" />
+                </p:column>  
+                              <p:column headerText="Direccion" >
+                                  <p:outputLabel value="#{item.direccion}" />
+                </p:column>  
+                              <p:column headerText="Telefono" >
+                                  <p:outputLabel value="#{item.telefono}" />
+                </p:column>  
+                         </p:dataTable>        
+                         <br></br>
+                       <!--  datos a insertar -->  
+                       <p:inputText value="#{bkn_Cliente.datosInsert.nombre}" placeholder="Nombre"/>
+                       <p:inputText value="#{bkn_Cliente.datosInsert.correo}" placeholder="Correo"/>
+                       <p:inputText value="#{bkn_Cliente.datosInsert.direccion}" placeholder="Dirección"/>
+                       <p:inputText value="#{bkn_Cliente.datosInsert.telefono}" placeholder="Teléfono"/>
+    <!-- boton para insertar -->
+    <p:commandButton value="Insertar Datos" actionListener="#{bkn_Cliente.insertarCliente()}" />  
+    <br></br><br></br>
+    <!--  datos a actualizar -->
+    <p:inputText id="idCliente" value="#{bkn_Cliente.datosActualizar.id}" placeholder="ID del Cliente" />
+    <p:inputText id="nombre" value="#{bkn_Cliente.datosActualizar.nombre}" placeholder="Nuevo Nombre" />
+    <p:inputText id="correo" value="#{bkn_Cliente.datosActualizar.correo}" placeholder="Nuevo Correo Electrónico" />
+    <p:inputText id="direccion" value="#{bkn_Cliente.datosActualizar.direccion}" placeholder="Nueva direccion" />
+    <p:inputText id="telefono" value="#{bkn_Cliente.datosActualizar.telefono}" placeholder="Nuevo telefono" />
+                    <!-- boton para actualizar -->
+                    <p:commandButton value="Actualizar Datos" actionListener="#{bkn_Cliente.actualizarCliente()}" /> <br></br>
+                    <br></br>   
+                      <br></br>
+                    <p:commandButton value="Ir a Inicio" action="InicioHibernate.xhtml" />
+                    </div>
+            </h:form>
+     </h:body>
+</html>
